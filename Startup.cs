@@ -24,6 +24,7 @@ namespace TaskDay8
         {
             if (env.IsDevelopment())
             {
+
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
