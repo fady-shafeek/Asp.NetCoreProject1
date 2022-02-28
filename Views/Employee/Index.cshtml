@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@*@Html.ActionLink("Create New ", "Create","Employee",routeValues:null,htmlAttributes:new {})*@
+<a asp-action="Create" asp-controller="Employee" class="btn btn-primary">Create new</a>
+
+<br />
+
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+        <th> @Html.DisplayNameFor(ww=>ww.Name) </th>
+        <th> @Html.DisplayNameFor(ww=>ww.Age) </th>
+        <th> @Html.DisplayNameFor(ww=>ww.Department.DeptName) </th>
+        <th></th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(ww=>item.Name) </td>
+            <td>@Html.DisplayFor(ww=>item.Age) </td>
+            <td>@Html.DisplayFor(ww=>item.Department.DeptName) </td>
+            <td>
+                <a asp-action="Edit" asp-controller="Employee" asp-route-id="@item.Id" asp-route-name="@item.Name" class="btn btn-success">Edit</a> |
+                <a asp-action="Details" asp-controller="Employee" asp-route-id="@item.Id" asp-route-name="@item.Name" class="btn btn-secondary">Details</a> |
+                <a asp-action="Delete" asp-controller="Employee" asp-route-id="@item.Id" asp-route-name="@item.Name" class="btn btn-danger">Delete</a> 
+            </td>
+        </tr>   
+    }
+</table>
+

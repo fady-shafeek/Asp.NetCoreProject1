@@ -1,0 +1,28 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form asp-action="Create" asp-controller="Employee" method="post"> 
+    <div class="row mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+        <div class="row mb-3">
+        <label asp-for="Age" class="form-label"></label>
+        <input asp-for="Age" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+
+        <div class="row mb-3">
+        <label asp-for="DeptId" class="form-label"></label>
+        <select asp-for="DeptId" asp-items="ViewBag.depts as SelectList" class="form-select"></select>
+        <span asp-validation-for="DeptId" class="text-danger"></span>
+    </div>
+
+    <input type="submit" class="btn btn-primary"/>
+</form>
